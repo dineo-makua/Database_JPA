@@ -5,21 +5,25 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Entity
+//@Entity
+@Embeddable
 @Getter
 @Setter
-@Table(name = "address")
+//@Table(name = "address")
 public class Address {
 
 
 
-        @Id
-        @GeneratedValue
-        @Column(name = "add_id")
-        private int addressId;
+//        @Id
+//        @GeneratedValue(strategy = GenerationType.IDENTITY)
+//        private int id;
+
+        private String street;
         private String city;
+        private String postalCode;
         private String addressType;
 
-        @OneToOne(mappedBy = "address")
-        private Employee employee;
+
+//        @OneToOne(mappedBy = "address")
+//        private Employee employee;
 }

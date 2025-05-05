@@ -17,7 +17,8 @@ public class Employee {
     private int emp_Age;
 
     @JoinColumn(name = "fk_add_id")
-    @OneToOne(cascade = CascadeType.ALL)
+    @Embedded
+//    @OneToOne(fetch = FetchType.EAGER)
     private Address address;
 
 
