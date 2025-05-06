@@ -12,10 +12,13 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "emp_id")
-    private int emp_id;
-    private String emp_name;
-    private int emp_Age;
+    private int empId;
 
+    @Column(name = "emp_name")
+    private String empName;
+
+    @Column(name = "emp_age")
+    private int empAge;
     @JoinColumn(name = "fk_add_id")
     @Embedded
 //    @OneToOne(fetch = FetchType.EAGER)
