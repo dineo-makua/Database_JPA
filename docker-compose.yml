@@ -1,0 +1,16 @@
+
+services:
+  postgres-uat:
+    image: postgres:15
+    container_name: postgres-uat
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: company_info_uat
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-uat-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-uat-data:
