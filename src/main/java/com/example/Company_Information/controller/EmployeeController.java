@@ -2,6 +2,7 @@ package com.example.Company_Information.controller;
 
 import com.example.Company_Information.entity.Employee;
 import com.example.Company_Information.repository.EmployeeRepository;
+import com.example.Company_Information.service.EmployeeDataLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,16 @@ import java.util.Optional;
 
 @RestController
 public class EmployeeController {
+
+
+    @Autowired
+    private EmployeeDataLoader employeeDataLoader;
+
+    @PostMapping("/loadJsonEmployees")
+    public ResponseEntity<String> loadJsonEmployees() {
+        String result = employeeDataLoader.loadEmployeesFromJson();
+        return ResponseEntity.ok(result);
+    }
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -33,6 +44,9 @@ public class EmployeeController {
         Optional<Employee> emp = employeeRepository.findByEmpNameAndEmpAge(emp_name, emp_Age);
         return emp.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
+
+
+
 
     // UPDATE by emp_name and emp_Age
 
