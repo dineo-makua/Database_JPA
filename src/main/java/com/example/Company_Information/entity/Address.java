@@ -18,10 +18,11 @@ public class Address {
 //        @GeneratedValue(strategy = GenerationType.IDENTITY)
 //        private int id;
 
-        private String street;
-        private String city;
-        private String postalCode;
-        private String addressType;
+
+                private String street;
+                private String city;
+                private String postalCode;
+                private String addressType;
 
 
 //        @OneToOne(mappedBy = "address")

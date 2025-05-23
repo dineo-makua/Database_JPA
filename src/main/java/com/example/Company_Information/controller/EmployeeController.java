@@ -39,9 +39,9 @@ public class EmployeeController {
 
     // GET by emp_name and emp_Age
     @GetMapping("/getEmployeeByDetails")
-    public ResponseEntity<Employee> getEmployeeByDetails(@RequestParam String emp_name,
-                                                         @RequestParam int emp_Age) {
-        Optional<Employee> emp = employeeRepository.findByEmpNameAndEmpAge(emp_name, emp_Age);
+    public ResponseEntity<Employee> getEmployeeByDetails(@RequestParam String empName,
+                                                         @RequestParam int empAge) {
+        Optional<Employee> emp = employeeRepository.findByEmpNameAndEmpAge(empName, empAge);
         return emp.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
@@ -53,9 +53,9 @@ public class EmployeeController {
 
     // DELETE by emp_name and emp_Age
     @DeleteMapping("/deleteEmployeeByDetails")
-    public ResponseEntity<String> deleteEmployeeByDetails(@RequestParam String emp_name,
-                                                          @RequestParam int emp_Age) {
-        Optional<Employee> emp = employeeRepository.findByEmpNameAndEmpAge(emp_name, emp_Age);
+    public ResponseEntity<String> deleteEmployeeByDetails(@RequestParam String empName,
+                                                          @RequestParam int empAge) {
+        Optional<Employee> emp = employeeRepository.findByEmpNameAndEmpAge(empName, empAge);
         if (emp.isPresent()) {
             employeeRepository.delete(emp.get());
             return ResponseEntity.ok("Employee deleted");
