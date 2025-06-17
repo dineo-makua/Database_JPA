@@ -19,10 +19,10 @@ public class EmployeeDataLoader {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @PostConstruct
-    public void init() {
-        System.out.println(loadEmployeesFromJson());
-    }
+//    @PostConstruct
+//    public void init() {
+//        System.out.println(loadEmployeesFromJson());
+//    }
 
     public String loadEmployeesFromJson() {
         try {

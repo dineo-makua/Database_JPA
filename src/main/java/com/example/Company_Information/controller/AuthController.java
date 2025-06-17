@@ -11,7 +11,7 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
-
+    //http://localhost:8080/auth/register
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestParam String username, @RequestParam String password) {
         String result = authService.register(username, password);
